@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'News API',
+      title: 'EG currency',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
