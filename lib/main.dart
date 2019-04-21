@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
             IconButton(
               icon: Icon(Icons.refresh),
               onPressed: (){
-                
+                fetchData();
               },
             )
           ],
@@ -71,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
             itemCount: list == null ? 0 : list.length,
             itemBuilder: (BuildContext context, int index) {
               return Card(
+                elevation: 2,
                 child: InkWell(
                   child: Text( list[index]['BankCode'] == null ? '...' : list[index]['BankCode'],
                       style: TextStyle(fontSize: 20, height: 3),
@@ -148,20 +149,37 @@ class _BankDetailsPageState extends State<BankDetailsPage> {
                     child: Container(
                       margin: EdgeInsets.all(5),
                       child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                         
                           children: <Widget>[
 
-                            Align(
-                              alignment: FractionalOffset(0.5, 0),
-                              child: Text(currencies[index]['CurrencyID'],style: TextStyle(fontSize: 18, )),
+                           Container(
+                             child: Row(
+                               children: <Widget>[
+                                Text(currencies[index]['CurrencyID'],style: TextStyle(fontSize: 18, ),textAlign: TextAlign.left,),
+                               ],
+                             ),
                             ),
 
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                            
+
+                            SizedBox(
+                              height: 25,
+                            ),
+                            Container(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Text('Buy rate: '+currencies[index]['BuyRate'].toString(),textAlign: TextAlign.left,style: TextStyle(fontSize: 16),),
                                 Text('Sell rate: '+ currencies[index]['SellRate'].toString(),textAlign: TextAlign.right,style: TextStyle(fontSize: 16)),
                               ],
+                              ),
+                            ),
+
+                            
+
+                            Row(
+                              
                             )
                           ],
                         ),
