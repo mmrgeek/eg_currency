@@ -33,9 +33,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
-      new GlobalKey<RefreshIndicatorState>();
-
   final String url = 'https://currency-spidey.herokuapp.com/api/fetch';
 
   Future<String> fetchData() async {
@@ -60,6 +57,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.refresh),
+              onPressed: (){
+                
+              },
+            )
+          ],
         ),
         body: Center(
           child: ListView.builder(
